@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <title>Home</title>
+</head>
+<body>
+    
+<div class="get-in-touch">
+    <h1 class="title">Enter Values!</h1>
+    <form action="{{ url_for('prediction') }}" method="POST" class="contact-form row">
+       <div class="form-field col-lg-6">
+          <input id="variancr" name="variancr" class="input-text js-input" type="number" value=0 step=".00001" required>
+          <label class="label" for="variancr">variancr</label>
+       </div>
+       <div class="form-field col-lg-6">
+          <input id="skewness" name="skewness" class="input-text js-input" type="number" value=0 step=".00001" required>
+          <label class="label" for="skewness">skewness</label>
+       </div>
+       <div class="form-field col-lg-6 ">
+         <input id="curtosis" name="curtosis" class="input-text js-input" type="number" value=0 step=".00001" required>
+         <label class="label" for="curtosis">curtosis</label>
+      </div>
+      <div class="form-field col-lg-6 ">
+        <input id="entropy" name="entropy" class="input-text js-input" type="number" value=0 step=".00001" required>
+        <label class="label" for="entropy">entropy</label>
+     </div>
+       <div class="form-field col-lg-12">
+          <input class="submit-btn" type="submit" value="Submit">
+       </div>
+    </form>
+    <h2>{{prediction_text | safe}}</h2>
+   </div>
+
+ <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
